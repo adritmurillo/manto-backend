@@ -43,7 +43,7 @@ import java.util.UUID;
 public class FamilyGroupMemberEntity {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "family_group_member_id", nullable = false, updatable = false)
     private UUID id;
 
     @Column(name = "family_group_id", nullable = false)
@@ -61,7 +61,7 @@ public class FamilyGroupMemberEntity {
     private UserEntity user;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role", nullable = false, length = 30)
+    @Column(name = "family_group_member_role", nullable = false, length = 30)
     private FamilyMemberRole role;
 
     @Column(name = "joined_at", nullable = false)

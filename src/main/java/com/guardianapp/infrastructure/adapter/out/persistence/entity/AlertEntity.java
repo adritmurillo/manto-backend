@@ -13,7 +13,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "alerts", indexes = {
     @Index(name = "idx_alert_link_id", columnList = "link_id"),
-    @Index(name = "idx_alert_status", columnList = "status"),
+    @Index(name = "idx_alert_status", columnList = "alert_status"),
     @Index(name = "idx_alert_protected_user", columnList = "protected_user_id")
 })
 @Getter
@@ -24,7 +24,7 @@ import java.util.UUID;
 public class AlertEntity {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "alert_id", nullable = false, updatable = false)
     private UUID id;
 
     @Column(name = "link_id", nullable = false)
@@ -48,10 +48,10 @@ public class AlertEntity {
     private String reason;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false, length = 20)
+    @Column(name = "alert_status", nullable = false, length = 20)
     private AlertStatus status;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "alert_created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "resolved_at")

@@ -27,7 +27,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "emergency_alerts", indexes = {
         @Index(name = "idx_emergency_link_id", columnList = "link_id"),
-        @Index(name = "idx_emergency_host_status", columnList = "primary_host_user_id,status"),
+        @Index(name = "idx_emergency_host_status", columnList = "primary_host_user_id,emergency_alert_status"),
         @Index(name = "idx_emergency_protected", columnList = "protected_user_id")
 })
 @Getter
@@ -38,7 +38,7 @@ import java.util.UUID;
 public class EmergencyAlertEntity {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "emergency_alert_id", nullable = false, updatable = false)
     private UUID id;
 
     @Column(name = "link_id", nullable = false)
@@ -69,10 +69,10 @@ public class EmergencyAlertEntity {
     private Double longitude;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false, length = 20)
+    @Column(name = "emergency_alert_status", nullable = false, length = 20)
     private EmergencyAlertStatus status;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "emergency_alert_created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "resolved_at")

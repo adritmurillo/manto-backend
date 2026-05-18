@@ -15,7 +15,7 @@ import java.util.UUID;
     @Index(name = "idx_verification_link_id", columnList = "link_id"),
     @Index(name = "idx_verification_host_id", columnList = "host_user_id"),
     @Index(name = "idx_verification_protected_id", columnList = "protected_user_id"),
-    @Index(name = "idx_verification_status", columnList = "status")
+    @Index(name = "idx_verification_status", columnList = "verification_status")
 })
 @Getter
 @Setter
@@ -25,7 +25,7 @@ import java.util.UUID;
 public class IdentityVerificationEntity {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "verification_id", nullable = false, updatable = false)
     private UUID id;
 
     @Column(name = "link_id", nullable = false)
@@ -56,10 +56,10 @@ public class IdentityVerificationEntity {
     private String challengeCode;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false, length = 20)
+    @Column(name = "verification_status", nullable = false, length = 20)
     private VerificationStatus status;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "verification_created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "expires_at", nullable = false)

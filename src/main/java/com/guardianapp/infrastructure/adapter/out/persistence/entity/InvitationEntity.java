@@ -20,7 +20,7 @@ import java.util.UUID;
 public class InvitationEntity {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "invitation_id", nullable = false, updatable = false)
     private UUID id;
 
     @Column(name = "host_id", nullable = false)
@@ -30,20 +30,20 @@ public class InvitationEntity {
     @JoinColumn(name = "host_id", insertable = false, updatable = false)
     private UserEntity host;
 
-    @Column(name = "token", nullable = false, unique = true, length = 20)
+    @Column(name = "invitation_token", nullable = false, unique = true, length = 20)
     private String token;
 
     @Column(name = "host_name", length = 100)
     private String hostName;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false, length = 20)
+    @Column(name = "invitation_status", nullable = false, length = 20)
     private InvitationStatus status;
 
     @Column(name = "expires_at", nullable = false)
     private LocalDateTime expiresAt;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "invitation_created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "accepted_at")

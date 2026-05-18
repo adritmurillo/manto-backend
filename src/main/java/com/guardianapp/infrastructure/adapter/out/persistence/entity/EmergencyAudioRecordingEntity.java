@@ -26,7 +26,7 @@ import java.util.UUID;
  */
 @Entity
 @Table(name = "emergency_audio_recordings", indexes = {
-        @Index(name = "idx_emergency_audio_alert", columnList = "emergency_alert_id,created_at")
+        @Index(name = "idx_emergency_audio_alert", columnList = "emergency_alert_id,audio_recording_created_at")
 })
 @Getter
 @Setter
@@ -36,7 +36,7 @@ import java.util.UUID;
 public class EmergencyAudioRecordingEntity {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "audio_recording_id", nullable = false, updatable = false)
     private UUID id;
 
     @Column(name = "emergency_alert_id", nullable = false)
@@ -51,7 +51,7 @@ public class EmergencyAudioRecordingEntity {
     private EmergencyAudioStorageProvider storageProvider;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false, length = 20)
+    @Column(name = "audio_recording_status", nullable = false, length = 20)
     private EmergencyAudioStatus status;
 
     @Column(name = "storage_file_id", length = 255)
@@ -66,7 +66,7 @@ public class EmergencyAudioRecordingEntity {
     @Column(name = "file_size_bytes")
     private Long fileSizeBytes;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "audio_recording_created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "uploaded_at")

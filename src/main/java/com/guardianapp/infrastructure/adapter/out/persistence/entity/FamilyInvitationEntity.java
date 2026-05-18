@@ -37,7 +37,7 @@ import java.util.UUID;
 public class FamilyInvitationEntity {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "family_invitation_id", nullable = false, updatable = false)
     private UUID id;
 
     @Column(name = "family_group_id", nullable = false)
@@ -58,17 +58,17 @@ public class FamilyInvitationEntity {
     @Column(name = "target_role", nullable = false, length = 30)
     private FamilyMemberRole targetRole;
 
-    @Column(name = "token", nullable = false, unique = true, length = 20)
+    @Column(name = "family_invitation_token", nullable = false, unique = true, length = 20)
     private String token;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false, length = 20)
+    @Column(name = "family_invitation_status", nullable = false, length = 20)
     private FamilyInvitationStatus status;
 
     @Column(name = "expires_at", nullable = false)
     private LocalDateTime expiresAt;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "family_invitation_created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "accepted_at")

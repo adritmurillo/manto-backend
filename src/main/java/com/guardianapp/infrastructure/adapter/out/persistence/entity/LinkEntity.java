@@ -16,7 +16,7 @@ import java.util.UUID;
        uniqueConstraints = {
            @UniqueConstraint(
                name = "uk_link_host_protected_active",
-               columnNames = {"host_id", "protected_id", "status"}
+               columnNames = {"host_id", "protected_id", "link_status"}
            )
        })
 @Getter
@@ -27,7 +27,7 @@ import java.util.UUID;
 public class LinkEntity {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "link_id", nullable = false, updatable = false)
     private UUID id;
 
     @Column(name = "host_id", nullable = false)
@@ -46,16 +46,16 @@ public class LinkEntity {
     private LocalDateTime codeExpiresAt;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false, length = 20)
+    @Column(name = "link_status", nullable = false, length = 20)
     private LinkStatus status;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "link_created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "confirmed_at")
     private LocalDateTime confirmedAt;
 
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "link_updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
     @PrePersist

@@ -23,10 +23,10 @@ import java.util.UUID;
 public class UserEntity {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "user_id", nullable = false, updatable = false)
     private UUID id;
 
-    @Column(name = "name", nullable = false, length = 100)
+    @Column(name = "user_name", nullable = false, length = 100)
     private String name;
 
     @Column(name = "email", nullable = false, unique = true, length = 255)
@@ -35,7 +35,7 @@ public class UserEntity {
     @Column(name = "phone", nullable = false, length = 20)
     private String phone;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "user_created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "active", nullable = false)

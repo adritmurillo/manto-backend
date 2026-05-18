@@ -32,10 +32,10 @@ import java.util.UUID;
 public class FamilyGroupEntity {
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "family_group_id", nullable = false, updatable = false)
     private UUID id;
 
-    @Column(name = "name", nullable = false, length = 100)
+    @Column(name = "family_group_name", nullable = false, length = 100)
     private String name;
 
     @Column(name = "primary_host_user_id", nullable = false)
@@ -45,7 +45,7 @@ public class FamilyGroupEntity {
     @JoinColumn(name = "primary_host_user_id", insertable = false, updatable = false)
     private UserEntity primaryHostUser;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "family_group_created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @PrePersist
